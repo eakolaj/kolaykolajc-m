@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Football Comp Collage Maker</title>
+
+<style>
+body{
+background:#0f0f0f;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+h1{
+margin-top:40px;
+}
+
+input{
+margin:20px;
+}
+
+canvas{
+margin-top:20px;
+border:3px solid white;
+}
+
+button{
+padding:10px 20px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Football Comp Cover Maker</h1>
+
+<p>Upload 4 photos</p>
+
+<input type="file" id="images" multiple accept="image/*">
+
+<br>
+
+<button onclick="createCollage()">Create Collage</button>
+
+<br>
+
+<canvas id="canvas" width="1920" height="1920"></canvas>
+
+<br><br>
+
+<a id="download" download="comp-collage.png">
+<button>Download HD</button>
+</a>
+
+<script>
+
+function createCollage(){
+
+let files=document.getElementById("images").files;
+
+if(files.length!=4){
+alert("Upload exactly 4 images");
+return;
+}
+
+let canvas=document.getElementById("canvas");
+let ctx=canvas.getContext("2d");
+
+let size=canvas.width/2;
+
+for(let i=0;i<4;i++){
+
+let img=new Image();
+img.src=URL.createObjectURL(files[i]);
+
+img.onload=function(){
+
+let x=(i%2)*size;
+let y=Math.floor(i/2)*size;
+
+ctx.drawImage(img,x,y,size,size);
+
+document.getElementById("download").href=canvas.toDataURL();
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
