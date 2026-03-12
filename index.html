@@ -4,32 +4,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kolaj</title>
+<title>960x1280 Kolaj</title>
 
 <style>
+
 body{
-  margin:0;
-  background:#111;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+margin:0;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
 .collage{
-  width:800px;
-  height:800px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr;
-  gap:5px;
+width:960px;
+height:1280px;
+display:grid;
+grid-template-columns:1fr 1fr;
+grid-template-rows:1fr 1fr;
+gap:6px;
+}
+
+.collage div{
+overflow:hidden;
 }
 
 .collage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
 }
+
 </style>
 
 </head>
@@ -37,10 +44,12 @@ body{
 <body>
 
 <div class="collage">
-<img src="1.jpg">
-<img src="2.jpg">
-<img src="3.jpg">
-<img src="4.jpg">
+
+<div><img src="1.jpg"></div>
+<div><img src="2.jpg"></div>
+<div><img src="3.jpg"></div>
+<div><img src="4.jpg"></div>
+
 </div>
 
 </body>
